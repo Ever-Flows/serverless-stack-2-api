@@ -32,23 +32,23 @@ provider:
 
   # These environment variables are made available to our functions
   # under process.env.
-  environment:
-    tableName: ${self:custom.tableName}
+environment:
+  tableName: ${self:custom.tableName}
 
   # 'iamRoleStatement' defines the permission policy for the Lambda function.
   # In this case Lambda functions are granted with permissions to access DynamoDB.
-  iamRoleStatements:
-    - Effect: Allow
-      Action:
-        - dynamodb:DescribeTable
-        - dynamodb:Query
-        - dynamodb:Scan
-        - dynamodb:GetItem
-        - dynamodb:PutItem
-        - dynamodb:UpdateItem
-        - dynamodb:DeleteItem
-      Resource:
-	- "Fn::GetAtt": [ NotesTable, Arn ]
+iamRoleStatements:
+  - Effect: Allow
+    Action:
+       - dynamodb:DescribeTable
+       - dynamodb:Query
+       - dynamodb:Scan
+       - dynamodb:GetItem
+       - dynamodb:PutItem
+       - dynamodb:UpdateItem
+       - dynamodb:DeleteItem
+    Resource:
+       - "Fn::GetAtt": [ NotesTable, Arn ]
 
 functions:
   # Defines an HTTP API endpoint that calls the main function in create.js
@@ -115,6 +115,15 @@ functions:
           authorizer: aws_iam
 
 
+billing:
+    handler: billing.main
+    events:
+      - http:
+          path: billing
+          method: post
+          cors: true
+          authorizer: aws_iam
+
   # Create our resources with separate CloudFormation templates
 resources:
   # DynamoDB
@@ -124,3 +133,4 @@ resources:
   # Cognito
   - ${file(resources/cognito-user-pool.yml)}
   - ${file(resources/cognito-identity-pool.yml)}
+  
