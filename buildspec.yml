@@ -12,7 +12,7 @@ phases:
     commands:
       - mkdir -p build
       - npm install -g serverless
-      - serverless -v -s $(echo ${CODEBUILD_INITIATOR} | cut -d'/' -f2 | cut -d'_' -f3) deploy
+      - serverless -v deploy
 
 artifacts:
   files:
