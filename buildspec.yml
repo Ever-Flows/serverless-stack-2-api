@@ -7,7 +7,7 @@ phases:
       - npm install
   build:
     commands:
-      - npm start
+      - npm install
   post_build:
     commands:
       - mkdir -p build
