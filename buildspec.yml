@@ -13,7 +13,7 @@ phases:
       - mkdir -p build
       - tar jcf build/notes2-$(date +%Y%m%d%H%m%S).tar.bz2 .gitignore README.md buildspec.yml package.json serverless.yml *.js mocks tests resources libs appspec.yml  
       - npm install -g serverless
-      - serverless -v deploy
+      - serverless  deploy
 
 artifacts:
   files:
