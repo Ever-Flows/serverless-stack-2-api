@@ -11,7 +11,7 @@ phases:
   post_build:
     commands:
       - mkdir -p build
-      - tar jcf build/myApp-$(date +%Y%m%d%H%m%S).tar.bz2 .eslintrc.js .gitignore README.md buildspec.yml package.json serverless.yml src test
+      - tar jcf build/notes-2-$(date +%Y%m%d%H%m%S).tar.bz2  .gitignore README.md buildspec.yml package.json serverless.yml src tests 
       - npm install -g serverless
       - serverless -v -s $(echo ${CODEBUILD_INITIATOR} | cut -d'/' -f2 | cut -d'_' -f3) deploy
 
