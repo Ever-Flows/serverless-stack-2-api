@@ -1,0 +1,9 @@
+{
+  "PortfolioName": "Portfolio-Buy",
+  "User": "578eb840-f70f-11e6-9d1a-1359b3b22944",
+  "SerialNumber":1,
+  "StockSymbol":"AAPL",
+  "TotalPrice": 15000.25,
+  "NumberOfShares": 125,
+  "PurchaseDate":"2018-08-25"
+}
