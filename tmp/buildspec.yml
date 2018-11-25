@@ -11,7 +11,7 @@ phases:
   post_build:
     commands:
       - mkdir -p build
-      - tar jcf build/notes2-$(date +%Y%m%d%H%m%S).tar.bz2 .gitignore README.md buildspec.yml package.json serverless.yml *.js mocks tests resources libs appspec.yml  
+      - tar jcf build/notes2-$(date +%Y%m%d%H%m%S).tar.bz2 .gitignore README.md buildspec.yml package.json serverless.yml *.js mocks tests resources libs Appspec.yml  
       - npm install -g serverless
       - serverless -v deploy
 
